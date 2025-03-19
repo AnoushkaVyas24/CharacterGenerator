@@ -96,7 +96,7 @@ const versatileHeritage = [
     "Ardande", "Aasimar", "Aphorite", "Beastkin", "Changeling", "Dhampir", "Duskwalker", "Ganzi", "Naari (formerly Ifrit)", "Reflection", "Suli", "Sylph", "Talos", "Tiefling", "Undine"
 ];
 
-const generateValueSound = new Audio();
+const soundForRandom = new Audio("../audios/soundForRandomVal.mp3");
 
 //Choose random ancestry and return its index
 function getRandomAncestry() {
@@ -107,7 +107,7 @@ function getRandomAncestry() {
 //Normals or Versatile Heritage
 function getRandomCategory() {
     const randomNum = Math.random();
-    return randomNum < 0.75 ? "normal" : "versatile"; // 75% Normal, 25% Versatile
+    return randomNum < 0.75 ? "Normal" : "Versatile Heritage"; // 75% Normal, 25% Versatile
 }
 
 //Type of Normals/Versatile Heritage
@@ -132,10 +132,16 @@ document.getElementById("generateButton").addEventListener("click", function () 
         const ancestry = getRandomAncestry();//index of chosen ancestry
         document.getElementById("ancestryResult").textContent = `Ancestry: ${ancestry.Name}`;
 
+        soundForRandom.play();
+
         // Generate Category
         setTimeout(() => {
             const category = getRandomCategory();
             document.getElementById("categoryResult").textContent = `Category: ${category}`;
+
+            soundForRandom.pause();
+            soundForRandom.currentTime = 0;
+            soundForRandom.play();
 
             // Generate Item
             setTimeout(() => {
@@ -147,6 +153,10 @@ document.getElementById("generateButton").addEventListener("click", function () 
                     const item = getRandomItem(sublist);
                     document.getElementById("itemResult").textContent = `Normal: ${item}`;
                 }
+
+                soundForRandom.pause();
+                soundForRandom.currentTime = 0;
+                soundForRandom.play();
 
                 // Display Ancestry Image, Link, and Description
                 document.getElementById("ancestryImage").src = ancestry.Image;
