@@ -48,6 +48,7 @@ body {
 }
 
 .container {
+    height: 80%;
     padding: 40px; /* Increased padding to avoid overlap with the border */
     background-color: rgba(0, 0, 0, 0.89); /* Semi-transparent background for better readability */
     border-radius: 10px;
