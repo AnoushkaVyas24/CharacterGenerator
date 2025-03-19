@@ -88,7 +88,7 @@ const ancestriesRaces = [
         { "Name": "Strix", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=40", "Description": "Known as Itarii in their own language, strix are reclusive avian humanoids devoted to their homelands and tribes, defending their precious communities with broad wingspans and razor talons.", "Image": "../images/ancestriesRaces/Strix.png", "normals" : ["Nightglider", "Predator", "Scavenger", "Shoreline", "Songbird"] },
         { "Name": "Surki", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=76", "Description": "Surkis are only now emerging from the subterranean Darklands in a generational dig to the surface. This insectile and highly metamorphic species subsists on the latent magic in the world around them. Once they have refined enough, Surkis are capable of developing unique adaptations that allow them to project magic in diverse ways, from digging claws to energized wings.", "Image": "../images/ancestriesRaces/Surki.png", "normals" : ["Breaker", "Elytron", "Hardshell", "Lantern"] },
         { "Name": "Vishkanya", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=56", "Description": "Vishkanyas are ophidian(snakelike) humanoids who carry potent venom within their blood and saliva. Largely misunderstood due to old tales of their toxicity and natural finesse, vishkanyas work to grow into more than just what stories paint them to be.", "Image": "../images/ancestriesRaces/Vishkanya.png", "normals" : ["Elusive Vishkanya", "Keen-Venom Vishkanya", "Old-Blood Vishkanya", "Prismatic Vishkanya", "Scalekeeper Vishkanya", "Venom-Resistant Vishkanya"] },
-        { "Name": "Yaksha", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=92", "Description": "Divine spirits who emigrated to Golarion from the first world.", "Image": "../images/ancestriesRaces/Yaksha.png", "normals" : ["Deny Lady Nanbyo's Charity", "Deny The Firstborn Pursuit", "Deny The Traitor Rebirth", "Respite Of A Thousand Roofs", "Respite Of Cloudless Paths", "Respite Of Loam And Leaf"] },
+        { "Name": "Yaksha", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=92", "Description": "Divine spirits who emigrated to Golarion from the first world.", "Image": "../images/ancestriesRaces/Yaksha.png", "normals" : ["Deny Lady Nanbyo's Charity", "Deny The Firstborn Pursuit", "Deny The Traitor's Rebirth", "Respite Of A Thousand Roofs", "Respite Of Cloudless Paths", "Respite Of Loam And Leaf"] },
         { "Name": "Yaoguai", "Link":"https://2e.aonprd.com/Ancestries.aspx?ID=93", "Description": "Beings who usually begin their existence as simple animals, objects, or plants, but have found a means to transcend their original forms through the power of cultivation.", "Image": "../images/ancestriesRaces/Yaoguai.png", "normals" : ["Born Of Animal", "Born Of Celestial", "Born Of Elements", "Born Of Item", "Born Of Vegetation"] }
 ];
 
@@ -123,7 +123,6 @@ document.getElementById("generateButton").addEventListener("click", function () 
 
     // Clear previous results
     document.getElementById("ancestryResult").textContent = "";
-    document.getElementById("categoryResult").textContent = "";
     document.getElementById("itemResult").textContent = "";
     document.getElementById("ancestryImageContainer").style.display = "none";
 
@@ -137,36 +136,33 @@ document.getElementById("generateButton").addEventListener("click", function () 
         // Generate Category
         setTimeout(() => {
             const category = getRandomCategory();
-            document.getElementById("categoryResult").textContent = `Category: ${category}`;
-
-            soundForRandom.pause();
-            soundForRandom.currentTime = 0;
-            soundForRandom.play();
 
             // Generate Item
             setTimeout(() => {
-                if (category === "versatile") {
+                if (category === "Versatile Heritage") {
                     const item = getRandomItem(versatileHeritage);
                     document.getElementById("itemResult").textContent = `Versatile Heritage: ${item}`;
                 } else {
                     const sublist = ancestry.normals;
                     const item = getRandomItem(sublist);
-                    document.getElementById("itemResult").textContent = `Normal: ${item}`;
+                    document.getElementById("itemResult").textContent = `${ancestry.Name} Heritage: ${item}`;
                 }
 
                 soundForRandom.pause();
                 soundForRandom.currentTime = 0;
                 soundForRandom.play();
 
-                // Display Ancestry Image, Link, and Description
-                document.getElementById("ancestryImage").src = ancestry.Image;
-                document.getElementById("ancestryLink").href = ancestry.Link;
-                document.getElementById("ancestryDescription").textContent = ancestry.Description;
-                document.getElementById("ancestryImageContainer").style.display = "block";
+                setTimeout(() => {
+                    // Display Ancestry Image, Link, and Description
+                    document.getElementById("ancestryImage").src = ancestry.Image;
+                    document.getElementById("ancestryLink").href = ancestry.Link;
+                    document.getElementById("ancestryDescription").textContent = ancestry.Description;
+                    document.getElementById("ancestryImageContainer").style.display = "block";
 
-                // Re-enable the button
-                button.disabled = false;
-            }, 500); // 1-second delay for item
-        }, 500); // 1-second delay for category
-    }, 500); // 1-second delay for ancestry
+                    // Re-enable the button
+                    button.disabled = false;
+                }, 1000)
+            }, 10);
+        }, 500);
+    }, 500);
 });

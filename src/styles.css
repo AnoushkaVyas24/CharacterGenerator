@@ -66,6 +66,8 @@ header h1 {
 
 /* Results Section */
 .results {
+    padding-left: 80px;
+    padding-right: 80px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 0px;
@@ -76,8 +78,8 @@ header h1 {
     padding: 20px;
     border-radius: 10px;
     font-size: 1.1rem;
-    width: 25%;
-    height: 25px;
+    width: 150px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,6 +93,7 @@ header h1 {
     display: none;
     text-align: center;
     margin-top: 15px;
+    margin-bottom: 0px;
     max-width: 100%;
     overflow: hidden;
     display: flex;
@@ -113,6 +116,7 @@ header h1 {
 }
 
 #ancestryDescription {
+    margin-bottom: 0px;
     font: italic 1.6rem "Fira Sans", serif;
     font-weight: 700;
     text-shadow: 1px 1px 2px #000;
