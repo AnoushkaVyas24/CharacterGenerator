@@ -48,8 +48,11 @@ body {
 }
 
 .container {
-    height: 80%;
-    padding: 40px; /* Increased padding to avoid overlap with the border */
+    padding-top: 10px;
+    padding-left: 40px; /* Increased padding to avoid overlap with the border */
+    padding-right: 40px;
+    padding-bottom: 40px;
+    max-height: 100%;
     background-color: rgba(0, 0, 0, 0.89); /* Semi-transparent background for better readability */
     border-radius: 10px;
     width: 80%;
@@ -96,6 +99,7 @@ header h1 {
     margin-top: 15px;
     margin-bottom: 0px;
     max-width: 100%;
+    max-height: 80%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
