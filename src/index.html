@@ -6,6 +6,9 @@
     <title>Fantasy NPC Generator</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Splash Screen -->
@@ -17,7 +20,6 @@
     <div class="container">
         <header>
             <h1>PATHFINDER CHARACTER GENERATOR</h1>
-            <p>Create your unique character for your next adventure!</p>
         </header>
         <main>
             <!-- Generated Results -->
@@ -27,20 +29,19 @@
                 <div id="itemResult" class="result-box"></div>
             </div>
 
-            <!-- Ancestry Image -->
             <div id="ancestryImageContainer">
-                <img id="ancestryImage" src="" alt="Ancestry Image">
+                <a id="ancestryLink" href="#" target="_blank">
+                    <img id="ancestryImage" alt="">
+                </a>
+                <p id="ancestryDescription"></p>
             </div>
 
-            <!-- Generate Button -->
             <button id="generateButton">Generate Character</button>
         </main>
         <footer>
             <p>© 2025 Made with love. All rights reserved.</p>
         </footer>
     </div>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
